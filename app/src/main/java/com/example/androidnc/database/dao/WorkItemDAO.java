@@ -7,7 +7,6 @@ import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
 import com.example.androidnc.database.model.WorkItem;
-
 import java.util.List;
 
 @Dao
