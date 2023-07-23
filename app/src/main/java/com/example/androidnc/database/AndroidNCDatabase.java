@@ -5,7 +5,9 @@ import android.arch.persistence.db.SupportSQLiteOpenHelper;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.DatabaseConfiguration;
 import android.arch.persistence.room.InvalidationTracker;
+import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
+import android.content.Context;
 
 import androidx.annotation.NonNull;
 
@@ -32,24 +34,23 @@ import com.example.androidnc.database.model.WorkItem;
 public abstract class AndroidNCDatabase extends RoomDatabase {
     // Database name to be used
     private static final String ANDROID_NC_DB_NAME = "NC_ANDROID_DB.db";
-    private static volatile AndroidNCDatabase instance;
+    private static volatile AndroidNCDatabase INSTANCE;
 
-    @NonNull
-    @Override
-    protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration config) {
-        return null;
+    static AndroidNCDatabase getDatabase(final Context context) {
+        if (INSTANCE == null) {
+            synchronized (AndroidNCDatabase.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                                    AndroidNCDatabase.class, ANDROID_NC_DB_NAME)
+                            // Wipes and rebuilds instead of migrating
+                            // if no Migration object.
+                            .fallbackToDestructiveMigration()
+                            .build();
+                }
+            }
+        }
+        return INSTANCE;
     }
-
-    @NonNull
-    @Override
-    protected InvalidationTracker createInvalidationTracker() {
-        return null;
-    }
-
-//    @Override
-//    public void clearAllTables() {
-//
-//    }
 
 
     // Declare data access objects as abstract
