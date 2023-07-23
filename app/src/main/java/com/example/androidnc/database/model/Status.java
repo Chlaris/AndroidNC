@@ -10,4 +10,22 @@ public class Status {
     @NonNull
     private String status_id;
     private String status_name;
+
+    public Status(@NonNull String status_id, String status_name) {
+        this.status_id = status_id;
+        this.status_name = status_name;
+    }
+
+    @NonNull
+    public String getStatus_id() {
+        return status_id;
+    }
+
+    public String getStatus_name() {
+        return status_name;
+    }
+
+    public void setStatus_name(String status_name) {
+        this.status_name = status_name;
+    }
 }

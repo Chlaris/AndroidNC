@@ -1,17 +1,24 @@
 package com.example.androidnc.database;
 
-import android.arch.persistence.db.SupportSQLiteDatabase;
+
+import android.arch.persistence.db.SupportSQLiteOpenHelper;
 import android.arch.persistence.room.Database;
+import android.arch.persistence.room.DatabaseConfiguration;
+import android.arch.persistence.room.InvalidationTracker;
 import android.arch.persistence.room.RoomDatabase;
 
 import androidx.annotation.NonNull;
 
+import com.example.androidnc.database.dao.LevelDAO;
+import com.example.androidnc.database.dao.StatusDAO;
+import com.example.androidnc.database.dao.TaskDAO;
 import com.example.androidnc.database.dao.WorkItemDAO;
 import com.example.androidnc.database.model.Level;
 import com.example.androidnc.database.model.Status;
 import com.example.androidnc.database.model.Task;
 import com.example.androidnc.database.model.WorkItem;
 
+// bump version number if schema changes
 @Database(
         entities = {
                 WorkItem.class,
@@ -20,18 +27,35 @@ import com.example.androidnc.database.model.WorkItem;
                 Status.class
         },
         exportSchema = false,
-        version = 32)
+        version = 1)
 
 public abstract class AndroidNCDatabase extends RoomDatabase {
+    // Database name to be used
     private static final String ANDROID_NC_DB_NAME = "NC_ANDROID_DB.db";
     private static volatile AndroidNCDatabase instance;
 
-    public static final RoomDatabase.Callback ON_CREATE_CALLBACK = new RoomDatabase.Callback() {
-        @Override
-        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-            super.onCreate(db);
-        }
-    };
+    @NonNull
+    @Override
+    protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration config) {
+        return null;
+    }
 
-    public abstract WorkItemDAO getAllWorItemDAO();
+    @NonNull
+    @Override
+    protected InvalidationTracker createInvalidationTracker() {
+        return null;
+    }
+
+//    @Override
+//    public void clearAllTables() {
+//
+//    }
+
+
+    // Declare data access objects as abstract
+    public abstract WorkItemDAO worItemDAO();
+    public abstract TaskDAO taskDAO();
+    public abstract LevelDAO levelDAO();
+    public abstract StatusDAO statusDAO();
+
 }

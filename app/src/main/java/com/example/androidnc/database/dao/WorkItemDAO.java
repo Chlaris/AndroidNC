@@ -11,24 +11,28 @@ import java.util.List;
 
 @Dao
 public interface WorkItemDAO {
-//    @Insert
-//    public void insert(WorkItem item);
+    // methods without writing SQL statement
     @Insert
-    public void insert(WorkItem... items);
+    public void insertWorkItem(WorkItem... items);
+    // return an int value indicating the number of rows that were updated successfully
     @Update
-    public void update(WorkItem... items);
+    public void updateWorkItem(WorkItem... items);
     @Delete
-    public void delete(WorkItem item);
-
+    public void deleteWorkItem(WorkItem item);
+    // writing SQL statements
     @Query("SELECT * FROM kma_work_item")
-    public List<com.example.androidnc.database.model.WorkItem> getAllWorkItems();
+    public List<WorkItem> getAllWorkItems(); //WorkItem[]
 
     @Query("SELECT * FROM kma_work_item WHERE work_id = :work_id")
-    public com.example.androidnc.database.model.WorkItem getWorkItemById(String work_id);
+    public WorkItem getWorkItemById(String work_id);
+
+//    @Query("SELECT work_name FROM kma_work_item")
+//    public List<WorkItem> loadFullName();
+
 
     @Query("SELECT * FROM kma_work_item WHERE user_create = :user_create")
-    public com.example.androidnc.database.model.WorkItem getWorkItemByUserCreate(String user_create);
+    public WorkItem getWorkItemByUserCreate(String user_create);
 
     @Query("SELECT * FROM kma_work_item WHERE user_respond = :user_respond")
-    public com.example.androidnc.database.model.WorkItem getWorkItemByUserRespond(String user_respond);
+    public WorkItem getWorkItemByUserRespond(String user_respond);
 }

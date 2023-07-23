@@ -24,10 +24,6 @@ public class Level {
         return level_id;
     }
 
-    public void setLevel_id(@NonNull String level_id) {
-        this.level_id = level_id;
-    }
-
     public void setLevel_name(String level_name) {
         this.level_name = level_name;
     }
