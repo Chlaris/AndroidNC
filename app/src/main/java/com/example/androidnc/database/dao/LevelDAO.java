@@ -1,45 +1,31 @@
 package com.example.androidnc.database.dao;
 
+import android.arch.persistence.room.Delete;
+import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
+
 import com.example.androidnc.database.model.Level;
+import com.example.androidnc.database.model.Task;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class LevelDAO implements GenericDao<Level>{
+public interface LevelDAO{
+    @Insert
+    public void insertLevel(Level... levels);
+    @Update
+    public void updateLevel(Level... levels);
+    @Delete
+    public void deleteLevel(Level... levels);
 
-    private List<Level> levels = new ArrayList<>();
-    public LevelDAO() {
-        levels.add(new Level("1", "urgent", "urgent"));
-        levels.add(new Level("2", "important", "important"));
-        levels.add(new Level("3", "normal", "normal"));
-    }
+    @Query("SELECT * FROM kma_level")
+    public List<Level> getAllLevels();
 
-    @Override
-    public List<Level> getAll() {
-        return levels;
-    }
+    @Query("SELECT * FROM kma_level where level_id = :id")
+    public Level getLevelById(String id);
 
-    @Override
-    public Optional<Level> get(String id) {
-        return levels.stream().filter(u -> u.getLevel_id() == id).findFirst();
-    }
-
-    @Override
-    public void insert(Level t) {
-        levels.add(t);
-    }
-
-    @Override
-    public void update(Level t) {
-        get(t.getLevel_id()).ifPresent(existLevel -> {
-            existLevel.setLevel_name(t.getLevel_name());
-            existLevel.setLevel_description(t.getLevel_description());
-        });
-    }
-
-    @Override
-    public void delete(Level t) {
-        get(t.getLevel_id()).ifPresent(existLevel -> t.remove(existLevel));
-    }
+    @Query("DELETE FROM kma_level WHERE level_id = :id")
+    void deleteLevelById(String id);
 }

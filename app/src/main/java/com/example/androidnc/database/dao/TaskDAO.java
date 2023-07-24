@@ -23,10 +23,10 @@ public interface TaskDAO {
     public List<Task> getAllTasks();
 
     @Query("SELECT * FROM kma_task_item where task_id = :id")
-    public Task getTasksById(String id);
+    public Task getTaskById(String id);
 
     @Query("SELECT * FROM kma_task_item WHERE work_id = :id")
-    public Task getTasksByWorId(String id);
+    public Task getTaskByWorId(String id);
 
     @Query("DELETE FROM kma_task_item WHERE task_id = :id")
     void deleteTaskById(String id);

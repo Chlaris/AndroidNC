@@ -36,6 +36,12 @@ public abstract class AndroidNCDatabase extends RoomDatabase {
     private static final String ANDROID_NC_DB_NAME = "NC_ANDROID_DB.db";
     private static volatile AndroidNCDatabase INSTANCE;
 
+    // Declare data access objects as abstract
+    public abstract WorkItemDAO worItemDAO();
+    public abstract TaskDAO taskDAO();
+    public abstract LevelDAO levelDAO();
+    public abstract StatusDAO statusDAO();
+
     static AndroidNCDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
             synchronized (AndroidNCDatabase.class) {
@@ -51,12 +57,5 @@ public abstract class AndroidNCDatabase extends RoomDatabase {
         }
         return INSTANCE;
     }
-
-
-    // Declare data access objects as abstract
-    public abstract WorkItemDAO worItemDAO();
-    public abstract TaskDAO taskDAO();
-    public abstract LevelDAO levelDAO();
-    public abstract StatusDAO statusDAO();
 
 }
