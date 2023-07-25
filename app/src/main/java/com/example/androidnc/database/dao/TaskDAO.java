@@ -3,6 +3,7 @@ package com.example.androidnc.database.dao;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
@@ -12,7 +13,7 @@ import java.util.List;
 
 @Dao
 public interface TaskDAO {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     public void insertTask(Task... tasks);
     @Update
     public void updateTask(Task... tasks);

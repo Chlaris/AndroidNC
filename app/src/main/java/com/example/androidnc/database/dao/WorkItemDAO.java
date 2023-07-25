@@ -3,8 +3,11 @@ package com.example.androidnc.database.dao;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
+
+import androidx.lifecycle.LiveData;
 
 import com.example.androidnc.database.model.WorkItem;
 import java.util.List;
@@ -12,7 +15,7 @@ import java.util.List;
 @Dao
 public interface WorkItemDAO {
     // methods without writing SQL statement
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     public void insertWorkItem(WorkItem... items);
     // return an int value indicating the number of rows that were updated successfully
     @Update
@@ -21,7 +24,7 @@ public interface WorkItemDAO {
     public void deleteWorkItem(WorkItem item);
     // writing SQL statements
     @Query("SELECT * FROM kma_work_item")
-    public List<WorkItem> getAllWorkItems(); //WorkItem[]
+    public LiveData<List<WorkItem>> getAllWorkItems(); //WorkItem[]
 
     @Query("SELECT * FROM kma_work_item WHERE work_id = :work_id")
     public WorkItem getWorkItemById(String work_id);

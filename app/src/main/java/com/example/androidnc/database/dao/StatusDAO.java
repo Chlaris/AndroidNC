@@ -8,6 +8,8 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
+import androidx.lifecycle.LiveData;
+
 import com.example.androidnc.database.model.Status;
 import com.example.androidnc.database.model.WorkItem;
 
@@ -26,7 +28,7 @@ public interface StatusDAO {
     // The default action is ABORT.
 
     @Query("SELECT * FROM kma_status")
-    public List<Status> getAllStatus();
+    public LiveData<List<Status>> getAllStatus();
 
     @Query("SELECT * FROM kma_status where status_id = :id")
     public Status getStatusById(String id);
