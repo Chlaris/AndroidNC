@@ -44,7 +44,7 @@ public abstract class AndroidNCDatabase extends RoomDatabase {
     public abstract StatusDAO statusDAO();
     public abstract WorkItemConverter workItemConverter();
 
-    static AndroidNCDatabase getDatabase(final Context context) {
+    public static AndroidNCDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
             synchronized (AndroidNCDatabase.class) {
                 if (INSTANCE == null) {

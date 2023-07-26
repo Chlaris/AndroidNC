@@ -15,6 +15,7 @@ import java.util.List;
 @Dao
 public interface WorkItemDAO {
     // methods without writing SQL statement
+    // Room library does not understand the function names
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     public void insertWorkItem(WorkItem... items);
     // return an int value indicating the number of rows that were updated successfully
