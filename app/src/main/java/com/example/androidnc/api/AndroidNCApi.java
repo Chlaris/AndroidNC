@@ -84,4 +84,18 @@ public interface AndroidNCApi {
     @GET("kma_work_item")
     Call<List<WorkItem>> getAllWorkItem();
 
+    @POST("kma_work_item")
+    Call<Task> createWorkItem(@Body WorkItem work);
+
+    // update entire, the same as POST
+    @PUT("kma_work_item/{id}")
+    Call<Task> putWorkItem(@Path("id") String work_id, @Body WorkItem work);
+
+    @PATCH("kma_work_item/{id}")
+    Call<Task> patchWorkItem(@Path("id") String work_id, @Body WorkItem work);
+
+    @DELETE("kma_work_item/{id}")
+    Call<Void> deleteWorkItem(@Path("id") String work_id);
+
+
 }
