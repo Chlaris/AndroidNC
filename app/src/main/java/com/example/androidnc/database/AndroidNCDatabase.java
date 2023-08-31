@@ -59,5 +59,8 @@ public abstract class AndroidNCDatabase extends RoomDatabase {
         }
         return INSTANCE;
     }
+    public void destroyDatabase() {
+        INSTANCE = null;
+    }
 
 }

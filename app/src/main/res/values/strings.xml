@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidNC</string>
+    <string name="url_server">http://192.168.1.14:8080/</string>
 </resources>
