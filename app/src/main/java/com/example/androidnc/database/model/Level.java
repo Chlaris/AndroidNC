@@ -4,13 +4,22 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 
 @Entity(tableName = "kma_level")
 public class Level {
     @PrimaryKey
     @NonNull
+    @SerializedName("level_id")
+    @Expose
     private String level_id;
+    @SerializedName("level_name")
+    @Expose
     private String level_name;
+    @SerializedName("level_description")
+    @Expose
     private String level_description;
 
     public Level(@NonNull String level_id, String level_name, String level_description) {

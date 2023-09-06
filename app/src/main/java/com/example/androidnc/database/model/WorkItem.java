@@ -4,20 +4,44 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 
 @Entity(tableName = "kma_work_item")
 public class WorkItem {
     @PrimaryKey
-    @NonNull  private String work_id;
+    @NonNull
+    @SerializedName("work_id")
+    @Expose
+    private String work_id;
+    @SerializedName("work_name")
+    @Expose
     private String work_name;
+    @SerializedName("work_description")
+    @Expose
     private String work_description;
+    @SerializedName("level_id")
+    @Expose
     private String level_id;
+    @SerializedName("status_id")
+    @Expose
     private String status_id;
+    @SerializedName("work_start")
+    @Expose
     private Date work_start;
+    @SerializedName("work_end")
+    @Expose
     private Date work_end;
+    @SerializedName("user_create")
+    @Expose
     private String user_create;
+    @SerializedName("user_respond")
+    @Expose
     private String user_respond;
+    @SerializedName("user_support")
+    @Expose
     private String user_support;
 
     public WorkItem(@NonNull String work_id, String work_name, String work_description,

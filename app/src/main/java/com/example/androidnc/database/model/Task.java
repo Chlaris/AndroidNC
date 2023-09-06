@@ -4,14 +4,27 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 @Entity(tableName = "kma_task_item")
 public class Task {
     @PrimaryKey
     @NonNull
+    @SerializedName("task_id")
+    @Expose
     private String task_id;
+    @SerializedName("task_name")
+    @Expose
     private String task_name;
+    @SerializedName("task_description")
+    @Expose
     private String task_description;
+    @SerializedName("status_id")
+    @Expose
     private String status_id;
+    @SerializedName("work_id")
+    @Expose
     private String work_id;
 
     public Task(@NonNull String task_id, String task_name, String task_description,
