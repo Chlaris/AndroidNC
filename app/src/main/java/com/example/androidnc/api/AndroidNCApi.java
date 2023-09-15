@@ -1,5 +1,6 @@
 package com.example.androidnc.api;
 
+import com.example.androidnc.database.model.Account;
 import com.example.androidnc.database.model.Level;
 import com.example.androidnc.database.model.Status;
 import com.example.androidnc.database.model.Task;
@@ -97,5 +98,7 @@ public interface AndroidNCApi {
     @DELETE("kma_work_item/{id}")
     Call<Void> deleteWorkItem(@Path("id") String work_id);
 
-
+    //Account
+    @GET("account")
+    Call<List<Account>> getAllAccount();
 }
