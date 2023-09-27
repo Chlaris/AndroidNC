@@ -7,23 +7,11 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class LevelConverter {
-    @SerializedName("code")
-    @Expose
-    private int code;
-
     @SerializedName("levels")
     @Expose
     private List<Level> levels;
 
     public LevelConverter() {
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
     }
 
     public List<Level> getLevels() {

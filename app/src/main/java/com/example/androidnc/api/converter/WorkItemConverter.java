@@ -8,23 +8,11 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class WorkItemConverter {
-    @SerializedName("code")
-    @Expose
-    private int code;
-
-    @SerializedName("work_items")
+    @SerializedName("all_kma_work")
     @Expose
     private List<WorkItem> work_items;
 
     public WorkItemConverter() {
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
     }
 
     public List<WorkItem> getWork_items() {

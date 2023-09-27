@@ -11,7 +11,6 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
-import com.example.androidnc.database.convert.WorkItemConverter;
 import com.example.androidnc.database.dao.AccountDAO;
 import com.example.androidnc.database.dao.LevelDAO;
 import com.example.androidnc.database.dao.StatusDAO;
@@ -46,7 +45,6 @@ public abstract class AndroidNCDatabase extends RoomDatabase {
     public abstract LevelDAO levelDAO();
     public abstract StatusDAO statusDAO();
     public abstract AccountDAO accountDAO();
-    public abstract WorkItemConverter workItemConverter();
 
     public static AndroidNCDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {

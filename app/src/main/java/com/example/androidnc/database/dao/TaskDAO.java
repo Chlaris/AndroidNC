@@ -8,6 +8,7 @@ import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
 import com.example.androidnc.database.model.Task;
+import com.example.androidnc.database.model.WorkItem;
 
 import java.util.List;
 
@@ -31,4 +32,7 @@ public interface TaskDAO {
 
     @Query("DELETE FROM kma_task_item WHERE task_id = :id")
     void deleteTaskById(String id);
+
+    @Query("SELECT * FROM kma_task_item WHERE user_respond = :user_respond")
+    public WorkItem getTaskItemByUserRespond(String user_respond);
 }

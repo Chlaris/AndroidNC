@@ -8,25 +8,12 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class TaskConverter {
-    @SerializedName("code")
-    @Expose
-    private int code;
-
     @SerializedName("tasks")
     @Expose
     private List<Task> tasks;
 
     public TaskConverter() {
     }
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
     public List<Task> getTasks() {
         return tasks;
     }

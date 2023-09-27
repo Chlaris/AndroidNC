@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 @Entity(tableName = "kma_task_item")
 public class Task {
     @PrimaryKey
@@ -26,14 +28,31 @@ public class Task {
     @SerializedName("work_id")
     @Expose
     private String work_id;
+    @SerializedName("work_start")
+    @Expose
+    private Date work_start;
+    @SerializedName("work_end")
+    @Expose
+    private Date work_end;
+    @SerializedName("user_respond")
+    @Expose
+    private String user_respond;
+    @SerializedName("user_support")
+    @Expose
+    private String user_support;
 
     public Task(@NonNull String task_id, String task_name, String task_description,
-                String status_id, String work_id) {
+                String status_id, String work_id, Date work_start, Date work_end,
+                String user_respond, String user_support) {
         this.task_id = task_id;
         this.task_name = task_name;
         this.task_description = task_description;
         this.status_id = status_id;
         this.work_id = work_id;
+        this.work_start = work_start;
+        this.work_end = work_end;
+        this.user_respond = user_respond;
+        this.user_support = user_support;
     }
 
     @NonNull
@@ -71,5 +90,41 @@ public class Task {
 
     public void setWork_id(String work_id) {
         this.work_id = work_id;
+    }
+
+    public void setTask_id(@NonNull String task_id) {
+        this.task_id = task_id;
+    }
+
+    public Date getWork_start() {
+        return work_start;
+    }
+
+    public void setWork_start(Date work_start) {
+        this.work_start = work_start;
+    }
+
+    public Date getWork_end() {
+        return work_end;
+    }
+
+    public void setWork_end(Date work_end) {
+        this.work_end = work_end;
+    }
+
+    public String getUser_respond() {
+        return user_respond;
+    }
+
+    public void setUser_respond(String user_respond) {
+        this.user_respond = user_respond;
+    }
+
+    public String getUser_support() {
+        return user_support;
+    }
+
+    public void setUser_support(String user_support) {
+        this.user_support = user_support;
     }
 }

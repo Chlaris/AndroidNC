@@ -37,6 +37,4 @@ public interface WorkItemDAO {
     @Query("SELECT * FROM kma_work_item WHERE user_create = :user_create")
     public WorkItem getWorkItemByUserCreate(String user_create);
 
-    @Query("SELECT * FROM kma_work_item WHERE user_respond = :user_respond")
-    public WorkItem getWorkItemByUserRespond(String user_respond);
 }
