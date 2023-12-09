@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class LevelConverter {
-    @SerializedName("levels")
+    @SerializedName("all_kma_level")
     @Expose
     private List<Level> levels;
 

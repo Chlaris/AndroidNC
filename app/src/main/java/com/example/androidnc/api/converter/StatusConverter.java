@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class StatusConverter {
-    @SerializedName("status")
+    @SerializedName("all_kma_status")
     @Expose
     private List<Status> status;
 

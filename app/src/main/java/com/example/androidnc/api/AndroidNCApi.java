@@ -2,6 +2,8 @@ package com.example.androidnc.api;
 
 import com.example.androidnc.api.converter.WorkItemConverter;
 import com.example.androidnc.database.model.Account;
+import com.example.androidnc.database.model.Comment;
+import com.example.androidnc.database.model.Connection;
 import com.example.androidnc.database.model.Level;
 import com.example.androidnc.database.model.Status;
 import com.example.androidnc.database.model.Task;
@@ -21,6 +23,19 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface AndroidNCApi {
+    // Comment
+    @GET("all_task_comments")
+    Call<List<Comment>> getAllTaskComments();
+    @POST("create_kma_comment")
+    Call<Comment> createKmaComment(@Body Comment comment);
+
+    // Connection
+    @GET("getAllKmaConnections")
+    Call<List<Connection>> getAllKmaConnections();
+    @POST("create_kma_connection")
+    Call<Connection> createKmaConnection(@Body Connection connection);
+
+
     // Level
     @GET("all_kma_level")
     Call<List<Level>> getAllKmaLevel();

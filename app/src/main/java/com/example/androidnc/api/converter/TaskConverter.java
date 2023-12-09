@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class TaskConverter {
-    @SerializedName("tasks")
+    @SerializedName("all_kma_tasks")
     @Expose
     private List<Task> tasks;
 
