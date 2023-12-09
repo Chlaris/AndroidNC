@@ -14,7 +14,7 @@ public class Level {
     @NonNull
     @SerializedName("level_id")
     @Expose
-    private String level_id;
+    private Integer level_id;
     @SerializedName("level_name")
     @Expose
     private String level_name;
@@ -22,14 +22,14 @@ public class Level {
     @Expose
     private String level_description;
 
-    public Level(@NonNull String level_id, String level_name, String level_description) {
+    public Level(@NonNull Integer level_id, String level_name, String level_description) {
         this.level_id = level_id;
         this.level_name = level_name;
         this.level_description = level_description;
     }
 
     @NonNull
-    public String getLevel_id() {
+    public Integer getLevel_id() {
         return level_id;
     }
 

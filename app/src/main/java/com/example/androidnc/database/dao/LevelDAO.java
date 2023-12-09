@@ -24,11 +24,6 @@ public interface LevelDAO{
     public void deleteLevel(Level... levels);
 
     @Query("SELECT * FROM kma_level")
-    public LiveData<List<Level>> getAllLevels();
+    public LiveData<List<Level>> getAllKmaLevel();
 
-    @Query("SELECT * FROM kma_level where level_id = :id")
-    public Level getLevelById(String id);
-
-    @Query("DELETE FROM kma_level WHERE level_id = :id")
-    void deleteLevelById(String id);
 }
