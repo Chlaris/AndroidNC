@@ -28,12 +28,12 @@ public interface StatusDAO {
     // The default action is ABORT.
 
     @Query("SELECT * FROM kma_status")
-    public LiveData<List<Status>> getAllStatus();
+    public LiveData<List<Status>> getAllKmaStatus();
 
-    @Query("SELECT * FROM kma_status where status_id = :id")
-    public Status getStatusById(String id);
+    // @Query("SELECT * FROM kma_status where status_id = :id")
+    // public Status getStatusById(String id);
 
-    @Query("DELETE FROM kma_status WHERE status_id = :id")
-    void deleteStatusById(String id);
+    // @Query("DELETE FROM kma_status WHERE status_id = :id")
+    // void deleteStatusById(String id);
 
 }

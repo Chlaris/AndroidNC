@@ -13,18 +13,18 @@ public class Status {
     @NonNull
     @SerializedName("status_id")
     @Expose
-    private String status_id;
+    private Integer status_id;
     @SerializedName("status_name")
     @Expose
     private String status_name;
 
-    public Status(@NonNull String status_id, String status_name) {
+    public Status(@NonNull Integer status_id, String status_name) {
         this.status_id = status_id;
         this.status_name = status_name;
     }
 
     @NonNull
-    public String getStatus_id() {
+    public Integer getStatus_id() {
         return status_id;
     }
 

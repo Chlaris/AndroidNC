@@ -33,22 +33,21 @@ public class Level {
         return level_id;
     }
 
-    public void setLevel_name(String level_name) {
-        this.level_name = level_name;
-    }
-
-    public void setLevel_description(String level_description) {
-        this.level_description = level_description;
-    }
-
     public String getLevel_name() {
         return level_name;
+    }
+
+    public void setLevel_name(String level_name) {
+        this.level_name = level_name;
     }
 
     public String getLevel_description() {
         return level_description;
     }
 
+    public void setLevel_description(String level_description) {
+        this.level_description = level_description;
+    }
 
     public void remove(Level existLevel) {
 

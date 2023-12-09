@@ -44,12 +44,8 @@ public class WorkItem {
     }
 
     @NonNull
-    public String getWork_id() {
+    public Integer getWork_id() {
         return work_id;
-    }
-
-    public String getUser_create() {
-        return user_create;
     }
 
     public String getWork_name() {
@@ -68,25 +64,28 @@ public class WorkItem {
         this.work_description = work_description;
     }
 
-    public String getLevel_id() {
+    public Integer getLevel_id() {
         return level_id;
     }
 
-    public void setLevel_id(String level_id) {
+    public void setLevel_id(Integer level_id) {
         this.level_id = level_id;
     }
 
-    public String getStatus_id() {
+    public Integer getStatus_id() {
         return status_id;
     }
 
-    public void setStatus_id(String status_id) {
+    public void setStatus_id(Integer status_id) {
         this.status_id = status_id;
+    }
+
+    public String getUser_create() {
+        return user_create;
     }
 
     public void setUser_create(String user_create) {
         this.user_create = user_create;
     }
-
 }
 

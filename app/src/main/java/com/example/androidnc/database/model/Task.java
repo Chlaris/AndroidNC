@@ -48,7 +48,7 @@ public class Task {
     private String user_support;
 
     public Task(@NonNull Integer task_id, String task_name, String task_description,
-                Integer status_id, Integer work_id, Integer level_id, Date work_start, Date work_end, String user_create,
+                Integer status_id, Integer work_id, Integer level_id, Date task_start, Date task_end, String user_create,
                 String user_respond, String user_support) {
         this.task_id = task_id;
         this.task_name = task_name;
@@ -56,15 +56,15 @@ public class Task {
         this.status_id = status_id;
         this.work_id = work_id;
         this.level_id = level_id;
-        this.work_start = work_start;
-        this.work_end = work_end;
+        this.task_start = task_start;
+        this.task_end = task_end;
         this.user_create = user_create;
         this.user_respond = user_respond;
         this.user_support = user_support;
     }
 
     @NonNull
-    public String getTask_id() {
+    public Integer getTask_id() {
         return task_id;
     }
 
@@ -84,40 +84,52 @@ public class Task {
         this.task_description = task_description;
     }
 
-    public String getStatus_id() {
+    public Integer getStatus_id() {
         return status_id;
     }
 
-    public void setStatus_id(String status_id) {
+    public void setStatus_id(Integer status_id) {
         this.status_id = status_id;
     }
 
-    public String getWork_id() {
+    public Integer getWork_id() {
         return work_id;
     }
 
-    public void setWork_id(String work_id) {
+    public void setWork_id(Integer work_id) {
         this.work_id = work_id;
     }
 
-    public void setTask_id(@NonNull String task_id) {
-        this.task_id = task_id;
+    public Integer getLevel_id() {
+        return level_id;
     }
 
-    public Date getWork_start() {
-        return work_start;
+    public void setLevel_id(Integer level_id) {
+        this.level_id = level_id;
     }
 
-    public void setWork_start(Date work_start) {
-        this.work_start = work_start;
+    public Date getTask_start() {
+        return task_start;
     }
 
-    public Date getWork_end() {
-        return work_end;
+    public void setTask_start(Date task_start) {
+        this.task_start = task_start;
     }
 
-    public void setWork_end(Date work_end) {
-        this.work_end = work_end;
+    public Date getTask_end() {
+        return task_end;
+    }
+
+    public void setTask_end(Date task_end) {
+        this.task_end = task_end;
+    }
+
+    public String getUser_create() {
+        return user_create;
+    }
+
+    public void setUser_create(String user_create) {
+        this.user_create = user_create;
     }
 
     public String getUser_respond() {
