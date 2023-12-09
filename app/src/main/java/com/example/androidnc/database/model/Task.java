@@ -15,7 +15,7 @@ public class Task {
     @NonNull
     @SerializedName("task_id")
     @Expose
-    private String task_id;
+    private Integer task_id;
     @SerializedName("task_name")
     @Expose
     private String task_name;
@@ -24,16 +24,22 @@ public class Task {
     private String task_description;
     @SerializedName("status_id")
     @Expose
-    private String status_id;
+    private Integer status_id;
     @SerializedName("work_id")
     @Expose
-    private String work_id;
-    @SerializedName("work_start")
+    private Integer work_id;
+    @SerializedName("level_id")
     @Expose
-    private Date work_start;
-    @SerializedName("work_end")
+    private Integer level_id;
+    @SerializedName("task_start")
     @Expose
-    private Date work_end;
+    private Date task_start;
+    @SerializedName("task_end")
+    @Expose
+    private Date task_end;
+    @SerializedName("user_create")
+    @Expose
+    private String user_create;
     @SerializedName("user_respond")
     @Expose
     private String user_respond;
@@ -41,16 +47,18 @@ public class Task {
     @Expose
     private String user_support;
 
-    public Task(@NonNull String task_id, String task_name, String task_description,
-                String status_id, String work_id, Date work_start, Date work_end,
+    public Task(@NonNull Integer task_id, String task_name, String task_description,
+                Integer status_id, Integer work_id, Integer level_id, Date work_start, Date work_end, String user_create,
                 String user_respond, String user_support) {
         this.task_id = task_id;
         this.task_name = task_name;
         this.task_description = task_description;
         this.status_id = status_id;
         this.work_id = work_id;
+        this.level_id = level_id;
         this.work_start = work_start;
         this.work_end = work_end;
+        this.user_create = user_create;
         this.user_respond = user_respond;
         this.user_support = user_support;
     }

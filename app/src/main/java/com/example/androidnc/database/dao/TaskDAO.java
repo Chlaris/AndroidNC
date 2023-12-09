@@ -25,14 +25,20 @@ public interface TaskDAO {
     public List<Task> getAllTasks();
 
     @Query("SELECT * FROM kma_task_item where task_id = :id")
-    public Task getTaskById(String id);
+    public Task getTaskById(Integer id);
 
     @Query("SELECT * FROM kma_task_item WHERE work_id = :id")
-    public Task getTaskByWorId(String id);
+    public Task getTaskByWorId(Integer id);
+
+    @Query("SELECT * FROM kma_task_item WHERE user_create = :user_id")
+    public Task getTaskByUserCreate(String user_id);
+
+    @Query("SELECT * FROM kma_task_item WHERE user_support = :user_id")
+    public Task getTaskByUserSupport(String user_id);
+
+    @Query("SELECT * FROM kma_task_item WHERE user_respond = :user_id")
+    public Task getTaskByUserRespond(String user_id);
 
     @Query("DELETE FROM kma_task_item WHERE task_id = :id")
-    void deleteTaskById(String id);
-
-    @Query("SELECT * FROM kma_task_item WHERE user_respond = :user_respond")
-    public WorkItem getTaskItemByUserRespond(String user_respond);
+    void deleteKmaTask(Integer id);
 }
