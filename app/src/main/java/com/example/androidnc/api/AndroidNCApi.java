@@ -24,16 +24,20 @@ import retrofit2.http.Query;
 
 public interface AndroidNCApi {
     // Comment
-    @GET("all_task_comments")
-    Call<List<Comment>> getAllTaskComments();
+    @GET("kma_comments")
+    Call<List<Comment>> getKmaCommentInTask(@Query("task_id") Integer task_id);
     @POST("create_kma_comment")
     Call<Comment> createKmaComment(@Body Comment comment);
+    @DELETE("delete_comment")
+    Call<Void> deleteComment(@Query("comment_id") Integer comment_id);
 
     // Connection
-    @GET("getAllKmaConnections")
-    Call<List<Connection>> getAllKmaConnections();
+    @GET("kma_connection")
+    Call<List<Connection>> getKmaConnectionByTask(@Query("task_id") Integer task_id);
     @POST("create_kma_connection")
     Call<Connection> createKmaConnection(@Body Connection connection);
+    @DELETE("delete_connection")
+    Call<Void> deleteConnection(@Query("connection_id") Integer connection_id);
 
 
     // Level
@@ -50,19 +54,27 @@ public interface AndroidNCApi {
     Call<Status> createKmaStatus(@Body Status status);
 
     // Task
-    @GET("all_kma_task")
-    Call<List<Task>> getAllKmaTask();
-
+    @GET("kma_tasks")
+    Call<List<Task>> getTaskByWork(@Query("work_id") Integer work_id);
+    @GET("kma_tasks")
+    Call<List<Task>> getTaskByUserCreate(@Query("user_id") Integer user_create);
+    @GET("kma_tasks")
+    Call<List<Task>> getTaskByUserSupport(@Query("user_id") Integer user_support);
+    @GET("kma_tasks")
+    Call<List<Task>> getTaskByUserRespond(@Query("user_id") Integer user_respond);
     @POST("create_kma_task")
     Call<Task> createKmaTask(@Body Task task);
+    @DELETE("delete_kma_task")
+    Call<Void> deleteKmaTask(@Query("task_id") Integer task_id);
 
 
     // WorkItem
-    @GET("all_kma_work")
-    public Call<WorkItemConverter> getAllKmaWork();
-
+    @GET("kma_work")
+    public Call<WorkItemConverter> getKmaWork(@Query("user_id") Integer user_create);
     @POST("create_kma_work")
     Call<Task> createKmaWork(@Body WorkItem work);
+    @DELETE("delete_kma_work")
+    Call<Void> deleteKmaWork(@Query("work_id") Integer work_id);
 
     //Account
     @GET("account")

@@ -21,8 +21,8 @@ public interface TaskDAO {
     @Delete
     public void deleteTask(Task... tasks);
 
-    @Query("SELECT * FROM kma_task_item")
-    public List<Task> getAllTasks();
+//    @Query("SELECT * FROM kma_task_item")
+//    public List<Task> getAllTasks();
 
     @Query("SELECT * FROM kma_task_item where task_id = :id")
     public Task getTaskById(Integer id);

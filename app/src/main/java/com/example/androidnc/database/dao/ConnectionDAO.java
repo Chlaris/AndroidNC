@@ -17,8 +17,8 @@ public interface ConnectionDAO {
     public void updateConnection(Connection... connections);
     @Delete
     public void deleteConnection(Connection... connections);
-    @Query("SELECT * FROM kma_connection")
-    public LiveData<List<Connection>> getAllKmaConnections();
+//    @Query("SELECT * FROM kma_connection")
+//    public LiveData<List<Connection>> getAllKmaConnections();
 
     @Query("SELECT * FROM kma_connection WHERE task_id = :task_id")
     public Connection getKmaConnectionByTask(Integer task_id);

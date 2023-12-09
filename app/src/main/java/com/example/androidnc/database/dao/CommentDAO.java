@@ -18,11 +18,11 @@ public interface CommentDAO {
     public void updateComment(Comment... comments);
     @Delete
     public void deleteComment(Comment... comments);
-    @Query("SELECT * FROM kma_comment")
-    public LiveData<List<Comment>> getAllTaskComments();
+//    @Query("SELECT * FROM kma_comment")
+//    public LiveData<List<Comment>> getAllTaskComments();
 
-    @Query("SELECT * FROM kma_comment WHERE user_create = :user_id")
-    public Comment getKmaComment(String user_id);
+    @Query("SELECT * FROM kma_comment WHERE task_id = :id")
+    public Comment getKmaCommentInTask(Integer id);
 
     @Query("DELETE FROM kma_comment WHERE comment_id = :id")
     void deleteComment(Integer id);

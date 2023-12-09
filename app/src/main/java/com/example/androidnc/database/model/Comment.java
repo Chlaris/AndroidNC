@@ -14,6 +14,9 @@ public class Comment {
     @SerializedName("comment_id")
     @Expose
     private Integer comment_id;
+    @SerializedName("task_id")
+    @Expose
+    private Integer task_id;
     @SerializedName("user_create")
     @Expose
     private String user_create;
@@ -21,8 +24,9 @@ public class Comment {
     @Expose
     private String message;
 
-    public Comment(@NonNull Integer comment_id, String user_create, String message) {
+    public Comment(@NonNull Integer comment_id, Integer task_id, String user_create, String message) {
         this.comment_id = comment_id;
+        this.task_id = task_id;
         this.user_create = user_create;
         this.message = message;
     }

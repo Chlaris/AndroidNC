@@ -12,11 +12,15 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import com.example.androidnc.database.dao.AccountDAO;
+import com.example.androidnc.database.dao.CommentDAO;
+import com.example.androidnc.database.dao.ConnectionDAO;
 import com.example.androidnc.database.dao.LevelDAO;
 import com.example.androidnc.database.dao.StatusDAO;
 import com.example.androidnc.database.dao.TaskDAO;
 import com.example.androidnc.database.dao.WorkItemDAO;
 import com.example.androidnc.database.model.Account;
+import com.example.androidnc.database.model.Comment;
+import com.example.androidnc.database.model.Connection;
 import com.example.androidnc.database.model.Level;
 import com.example.androidnc.database.model.Status;
 import com.example.androidnc.database.model.Task;
@@ -29,7 +33,9 @@ import com.example.androidnc.database.model.WorkItem;
                 Task.class,
                 Level.class,
                 Status.class,
-                Account.class
+                Account.class,
+                Comment.class,
+                Connection.class
         },
         exportSchema = false,
         version = 1)
@@ -45,6 +51,8 @@ public abstract class AndroidNCDatabase extends RoomDatabase {
     public abstract LevelDAO levelDAO();
     public abstract StatusDAO statusDAO();
     public abstract AccountDAO accountDAO();
+    public abstract CommentDAO commentDAO();
+    public abstract ConnectionDAO connectionDAO();
 
     public static AndroidNCDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
