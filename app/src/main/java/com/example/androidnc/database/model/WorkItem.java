@@ -15,7 +15,7 @@ public class WorkItem {
     @NonNull
     @SerializedName("work_id")
     @Expose
-    private String work_id;
+    private Integer work_id;
     @SerializedName("work_name")
     @Expose
     private String work_name;
@@ -24,18 +24,17 @@ public class WorkItem {
     private String work_description;
     @SerializedName("level_id")
     @Expose
-    private String level_id;
+    private Integer level_id;
     @SerializedName("status_id")
     @Expose
-    private String status_id;
-
+    private Integer status_id;
     @SerializedName("user_create")
     @Expose
     private String user_create;
 
 
-    public WorkItem(@NonNull String work_id, String work_name, String work_description,
-                    String level_id, String status_id, String user_create) {
+    public WorkItem(@NonNull Integer work_id, String work_name, String work_description,
+                    Integer level_id, Integer status_id, String user_create) {
         this.work_id = work_id;
         this.work_name = work_name;
         this.work_description = work_description;

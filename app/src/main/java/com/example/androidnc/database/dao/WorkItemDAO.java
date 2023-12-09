@@ -25,16 +25,19 @@ public interface WorkItemDAO {
     public void deleteWorkItem(WorkItem item);
     // writing SQL statements
     @Query("SELECT * FROM kma_work_item")
-    public LiveData<List<WorkItem>> getAllWorkItems(); //WorkItem[]
+    public LiveData<List<WorkItem>> getAllKmaWork(); //WorkItem[]
 
-    @Query("SELECT * FROM kma_work_item WHERE work_id = :work_id")
-    public WorkItem getWorkItemById(String work_id);
+    // @Query("SELECT * FROM kma_work_item WHERE work_id = :work_id")
+    // public WorkItem getWorkItemById(String work_id);
 
 //    @Query("SELECT work_name FROM kma_work_item")
 //    public List<WorkItem> loadFullName();
 
 
-    @Query("SELECT * FROM kma_work_item WHERE user_create = :user_create")
-    public WorkItem getWorkItemByUserCreate(String user_create);
+    @Query("SELECT * FROM kma_work_item WHERE user_create = :user_id")
+    public WorkItem getKmaWork(String user_id);
+
+    @Query("DELETE FROM kma_work_item WHERE work_id = :id")
+    void deleteKmaWork(Integer id);
 
 }
