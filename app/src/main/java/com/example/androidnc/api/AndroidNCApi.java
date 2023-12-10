@@ -5,6 +5,7 @@ import com.example.androidnc.database.model.Account;
 import com.example.androidnc.database.model.Comment;
 import com.example.androidnc.database.model.Connection;
 import com.example.androidnc.database.model.Level;
+import com.example.androidnc.database.model.Notification;
 import com.example.androidnc.database.model.Status;
 import com.example.androidnc.database.model.Task;
 import com.example.androidnc.database.model.TaskFile;
@@ -84,4 +85,7 @@ public interface AndroidNCApi {
     // TaskFile
     @GET("filecache")
     Call<List<TaskFile>> getAllFiles();
+
+    // Notification
+    Call<List<Notification>> getNotif();
 }
