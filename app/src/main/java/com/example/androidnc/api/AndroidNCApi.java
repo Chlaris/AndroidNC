@@ -7,6 +7,7 @@ import com.example.androidnc.database.model.Connection;
 import com.example.androidnc.database.model.Level;
 import com.example.androidnc.database.model.Status;
 import com.example.androidnc.database.model.Task;
+import com.example.androidnc.database.model.TaskFile;
 import com.example.androidnc.database.model.WorkItem;
 
 import java.util.List;
@@ -77,6 +78,10 @@ public interface AndroidNCApi {
     Call<Void> deleteKmaWork(@Query("work_id") Integer work_id);
 
     //Account
-    @GET("account")
+    @GET("accounts")
     Call<List<Account>> getAllAccount();
+
+    // TaskFile
+    @GET("filecache")
+    Call<List<TaskFile>> getAllFiles();
 }
